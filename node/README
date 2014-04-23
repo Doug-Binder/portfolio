@@ -1,2 +1,1 @@
-A Pool thermometer done in SVG using d3.js.
-
+this is the beginning of an application that will visualize voting patterns of senators and congress people, and then use a force based visualization to determine who has similar beliefs not based on the written record or the media, but purely based on if two members  agreed on a bill or disagreed.  
