@@ -36,5 +36,3 @@ app.get('/idea', function (req,res){
 console.log(url);
 
 app.listen(3000);
-
-jenrkjfkjhefwjkhaefwlkhjwekhjweflk
