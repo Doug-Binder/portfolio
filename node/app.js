@@ -1,36 +1,40 @@
 
-/**
- * Module dependencies.
- */
+
 
 var express = require('express');
-var routes = require('./routes');
-var user = require('./routes/user');
-var http = require('http');
-var path = require('path');
-
 var app = express();
+var http = require('http');
+var request = require("request");
 
-// all environments
-app.set('port', process.env.PORT || 3000);
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
-app.use(express.favicon());
-app.use(express.logger('dev'));
-app.use(express.json());
-app.use(express.urlencoded());
-app.use(express.methodOverride());
-app.use(app.router);
-app.use(express.static(path.join(__dirname, 'public')));
 
-// development only
-if ('development' == app.get('env')) {
-  app.use(express.errorHandler());
-}
 
-app.get('/', routes.index);
-app.get('/users', user.list);
+var congressNumber = '113';
+var version = 'v3';
+var chamber = 'senate';
+var apiKey = '09373818ca6661316b7b4fc325c569fd:6:69165979';
 
-http.createServer(app).listen(app.get('port'), function(){
-  console.log('Express server listening on port ' + app.get('port'));
+var url = 'http://api.nytimes.com/svc/politics/'+ version + '/us/legislative/congress/'+ congressNumber + '/' + chamber + '/' +
+'members.json?api-key='+apiKey;
+
+
+
+request({
+	url: url,
+	json: true,
+	},
+		function(error, response, body){
+ 			if (!error && response.statusCode === 200) {
+        	//	console.log(body['results'][0]['members']) // Print the json response
+  	}
+  })
+
+
+app.get('/idea', function (req,res){
+
+
 });
+console.log(url);
+
+app.listen(3000);
+
+jenrkjfkjhefwjkhaefwlkhjwekhjweflk
